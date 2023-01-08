@@ -1,5 +1,7 @@
 package es.ieslavereda.tools;
 
+import java.awt.*;
+
 public class Board {
     public static void createBoard(char[][] board, int gameDifficult){
         for (int i=0;i< board.length;i++)
@@ -96,16 +98,18 @@ public class Board {
         System.out.println();
     }
 
-    public static void showBoard(char[][] board,boolean showWithHacks, char[][] boardWithout){
+    public static void showBoard(char[][] board,boolean showWithHacks, char[][] boardWithout, int numberOfFlags){
         if (showWithHacks){
-            System.out.println(Colors.ANSI_BLACK_BACKGROUND+Colors.ANSI_GREEN+"BOARD WITH BOMBS: "+Colors.ANSI_RESET);
+            System.out.println(Colors.ANSI_BLACK_BACKGROUND+Colors.ANSI_GREEN+"     BOARD WITH BOMBS: "+Colors.ANSI_RESET);
             showBoardSize(board);
             System.out.println();
             System.out.println();
-            System.out.println(Colors.ANSI_BLACK_BACKGROUND+Colors.ANSI_GREEN+"BOARD WITHOUT BOMBS: "+Colors.ANSI_RESET);
+            System.out.println(Colors.ANSI_BLACK_BACKGROUND+ Colors.ANSI_RED+"\uD83D\uDEA9: "+ numberOfFlags+"    "+Colors.ANSI_RESET+Colors.ANSI_BLACK_BACKGROUND+Colors.ANSI_GREEN+"     BOARD WITHOUT BOMBS "+Colors.ANSI_RESET);
             showBoardSize(boardWithout);
-        }else
+        }else {
+            System.out.println(Colors.ANSI_BLACK_BACKGROUND + Colors.ANSI_RED + "\uD83D\uDEA9: " + numberOfFlags + Colors.ANSI_RESET);
             showBoardSize(boardWithout);
+        }
 
     }
 

@@ -26,7 +26,7 @@ public class Game {
         Scanner sc = new Scanner(System.in);
         int numberFlags = Board.countBombs(board);
         while (numberFlags!=-1&&!winTheGame(boardWithout,board)) {
-            Board.showBoard(board, hacks, boardWithout);
+            Board.showBoard(board, hacks, boardWithout, numberFlags);
             System.out.println();
             numberFlags = playerAction(board, boardWithout, numberFlags);
             ScreenOptions.eraseScreen();
@@ -34,12 +34,12 @@ public class Game {
         if (winTheGame(boardWithout, board)) {
             System.out.println(Colors.ANSI_BLACK_BACKGROUND+Colors.ANSI_GREEN+"You won good job!!!!"+Colors.ANSI_RESET);
             System.out.println();
-            Board.showBoard(board, false, boardWithout);
+            Board.showBoard(board, false, boardWithout,numberFlags);
         }
         else {
             System.out.println(Colors.ANSI_BLACK_BACKGROUND+Colors.ANSI_RED+"You lost, you touched a bomb :("+Colors.ANSI_RESET);
             System.out.println();
-            Board.showBoard(board, false, board);
+            Board.showBoard(board, false, board,numberFlags);
         }
 
         
