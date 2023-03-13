@@ -74,7 +74,11 @@ public class PlaceSelector {
         return selectionRecursive(boardWithOut,coor1,coor2+1, board)
                 || selectionRecursive(boardWithOut,coor1+1,coor2, board)
                 || selectionRecursive(boardWithOut,coor1,coor2-1, board)
-                || selectionRecursive(boardWithOut,coor1-1,coor2, board);
+                || selectionRecursive(boardWithOut,coor1-1,coor2, board)
+                || selectionRecursive(boardWithOut,coor1+1,coor2+1,board)
+                || selectionRecursive(boardWithOut,coor1+1,coor2-1,board)
+                || selectionRecursive(boardWithOut,coor1-1,coor2+1,board)
+                || selectionRecursive(boardWithOut,coor1-1,coor2-1,board);
     }
     public static boolean cornerLeftTop(char[][] boardWithOut, int coor1, int coor2, char[][] board){
         if (board[coor1+1][coor2 + 1] == 'B') {
